@@ -1,1 +1,1 @@
-# Quiz-gAME
+# Quiz-Game
