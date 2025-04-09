@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QUIZ TEST</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #050505, #2b6860);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    main {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .firstpg, .quiz-container {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(44, 26, 26, 0.2);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px 60px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .firstpg:hover, .quiz-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .firstpg p {
+      font-size: 60px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .firstpg button {
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 14px 32px;
+      background-color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      color: #1e3c72;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .firstpg button:hover {
+      background-color: #020407;
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    .quiz-container {
+      display: none;
+      animation: fadeIn 0.8s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .nav h2 {
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    #question-text {
+      color: #f0f0f0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    #guidelines {
+      color: #e0e0e0;
+      font-style: italic;
+    }
+
+    #inp {
+      display: inline-block;
+      margin-left: 10px;
+      color: #cfd8dc;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    #inp:hover {
+      color: #ffffff;
+    }
+
+    #controls-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    #start-button {
+      background: linear-gradient(to right, #43cea2, #185a9d);
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffffff;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #start-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(99, 128, 32, 0.4);
+    }
+
+    #timer-text {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    #timer-text:hover {
+      color: #a7ffeb;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.3);
+      accent-color: #00bfa5;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="firstpg" id="welcome-section">
+      <p>QUIZ START</p>
+      <button onclick="startQuiz()">Continue</button>
+    </div>
+
+    <div class="quiz-container" id="quiz-section">
+      <div class="nav"><h2>QUIZ TEST</h2></div>
+      <div id="question-container">
+        <p id="question-text">
+          <span id="guidelines"><br />
+            ৹ All questions are compulsory.<br />
+            ৹ Non-attempted questions will be taken as wrong answers.<br />
+            ৹ 1 mark will be awarded for correct answers.<br />
+            ৹ Selected option will not be changed, so select carefully.<br />
+          </span>
+          <br />
+          <input type="checkbox" name="move" id="move" />
+          <span id="inp">I've read and understood the guidelines stated above.</span>
+        </p>
+        <div id="answer-buttons"></div>
+      </div>
+
+      <div id="controls-container">
+        <button id="start-button" onclick="document.location='Question.html'">Start Test</button>
+        <div id="timer-container">
+          <span id="timer-text">Time Left: <span id="timer">00</span> Seconds</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function startQuiz() {
+      document.getElementById('welcome-section').style.display = 'none';
+      document.getElementById('quiz-section').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
